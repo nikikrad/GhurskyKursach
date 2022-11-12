@@ -4,6 +4,8 @@ import com.example.animeproject.domain.instance.RetrofitInstance
 import com.example.ghurskykursach.domain.ApiService
 import com.example.ghurskykursach.presentation.main.MainViewModel
 import com.example.ghurskykursach.presentation.main.repository.MainRepository
+import com.example.ghurskykursach.presentation.movie.MovieDescriptionViewModel
+import com.example.ghurskykursach.presentation.movie.repository.MovieRepository
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,6 +14,10 @@ val appModule = module {
     single { MainRepository(get()) }
 
     viewModel { MainViewModel(get()) }
+
+    viewModel { MovieDescriptionViewModel(get())}
+
+    single {MovieRepository(get())}
 
 //    single { FavoriteRepository(get()) }
 //

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_BackPoster"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:background="#C0BEBE"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/v_PrePoster"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:src="@drawable/back_for_back_poster"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_BackPoster"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+            </ImageView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/black"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_Poster"
+                app:layout_constraintTop_toBottomOf="@+id/v_PrePoster" />
+
+            <ImageView
+                android:id="@+id/iv_Poster"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/v_PrePoster" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_Description"
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:layout_height="150dp"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/btn_Description"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/read_more_description"
+                android:gravity="center"
+                android:text="Подробное описание ->"
+                android:textColor="#FF5722"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_Description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_BudgetLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Бюджет:"
+                android:textColor="#FF5722"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_Budget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="2000000"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_BudgetLabel"
+                app:layout_constraintStart_toEndOf="@+id/tv_BudgetLabel"
+                app:layout_constraintTop_toTopOf="@+id/tv_BudgetLabel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_Budget"
+                app:layout_constraintStart_toEndOf="@+id/tv_Budget"
+                app:layout_constraintTop_toTopOf="@+id/tv_Budget" />
+
+            <TextView
+                android:id="@+id/tv_BudgetWorldLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Сборы в Мире:"
+                android:textColor="#FF5722"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_BudgetLabel"
+                app:layout_constraintTop_toBottomOf="@+id/tv_BudgetLabel" />
+
+            <TextView
+                android:id="@+id/tv_BudgetWorld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="2000000"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_BudgetWorldLabel"
+                app:layout_constraintStart_toEndOf="@+id/tv_BudgetWorldLabel"
+                app:layout_constraintTop_toTopOf="@+id/tv_BudgetWorldLabel" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_BudgetWorld"
+                app:layout_constraintStart_toEndOf="@+id/tv_BudgetWorld"
+                app:layout_constraintTop_toTopOf="@+id/tv_BudgetWorld" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Актеры и не только..."
+                android:textColor="#FF5722"
+                android:textSize="20sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_Actors"
+                android:layout_width="match_parent"
+                android:layout_height="550dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:gravity="bottom"
+                android:text="Рейтинг Кинопоиска"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/back_for_description_rating">
+
+                <TextView
+                    android:id="@+id/tv_Rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp"
+                    android:hint="7.1"
+                    android:textSize="60sp"
+                    android:textColorHint="#4CAF50"/>
+
+                <TextView
+                    android:id="@+id/tv_Votes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_Rating"
+                    app:layout_constraintStart_toStartOf="@+id/tv_Rating"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_Rating"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:hint="3123455"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

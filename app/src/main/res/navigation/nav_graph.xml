@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.ghurskykursach.presentation.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_movieDescriptionFragment"
+            app:destination="@id/movieDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDescriptionFragment"
+        android:name="com.example.ghurskykursach.presentation.movie.MovieDescriptionFragment"
+        android:label="MovieDescriptionFragment" >
+        <action
+            android:id="@+id/action_movieDescriptionFragment_to_sheetDialogFragment"
+            app:destination="@id/sheetDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/sheetDialogFragment"
+        android:name="com.example.ghurskykursach.presentation.movie.dialog.SheetDialogFragment"
+        android:label="SheetDialogFragment" />
 </navigation>

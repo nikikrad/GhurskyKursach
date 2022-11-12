@@ -5,7 +5,7 @@ import com.example.ghurskykursach.domain.response.Films
 
 class MainRepository(private val retrofit: ApiService){
 
-    suspend fun getMovie(token: String, name: String): List<Films>? {
-        return retrofit.getMovie(token, name).body()
+    suspend fun getMovie( name: String): Films? {
+        return retrofit.getMovie(name).body()
     }
 }
