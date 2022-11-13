@@ -1,4 +1,4 @@
-package com.example.ghurskykursach.presentation.main
+package com.example.ghurskykursach.presentation.favorite
 
 import android.os.Bundle
 import android.util.Log
@@ -11,11 +11,11 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ghurskykursach.R
-import com.example.ghurskykursach.domain.response.Docs
+import com.example.ghurskykursach.presentation.movie.response.MoviesFirebase
 
-class MainAdapter(
-    private val movieList: List<Docs>
-) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+class FavoriteAdapter(
+    private val movieList: MutableList<MoviesFirebase>
+) : RecyclerView.Adapter<FavoriteAdapter.MainViewHolder>() {
 
     companion object {
         var megastatus = false
@@ -31,7 +31,7 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-            holder.bind(movieList[position])
+        holder.bind(movieList[position])
     }
 
     override fun getItemCount(): Int = movieList.size
@@ -43,13 +43,13 @@ class MainAdapter(
         private val name: TextView = itemView.findViewById(R.id.tv_Name)
         private val avatar: ImageView = itemView.findViewById((R.id.iv_Avatar))
         private val bundle = Bundle()
-        fun bind(item: Docs) {
+        fun bind(item: MoviesFirebase) {
             megastatus = false
 
             try{
 
                 Glide.with(itemView)
-                    .load(item.poster.url)
+                    .load(item.poster)
                     .placeholder(R.drawable.ic_search)
                     .into(avatar)
 
@@ -63,9 +63,9 @@ class MainAdapter(
             itemView.setOnClickListener {
                 if (megastatus == false) {
                     megastatus = true
-                    bundle.putInt("ID", item.id)
+                    bundle.putInt("ID", item.id.toInt())
                     Navigation.findNavController(itemView)
-                        .navigate(R.id.action_mainFragment_to_movieDescriptionFragment, bundle)
+                        .navigate(R.id.action_favoriteFragment_to_movieDescriptionFragment, bundle)
                 }
             }
 

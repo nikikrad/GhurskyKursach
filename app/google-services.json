@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "615353031079",
+    "project_id": "ghursky",
+    "storage_bucket": "ghursky.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615353031079:android:3b75dc07a0a0ffb227fe82",
+        "android_client_info": {
+          "package_name": "com.example.ghurskykursach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "615353031079-61h3qv8r7vaov3qh4h4g7js4na18ve0i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ghurskykursach",
+            "certificate_hash": "e1263beeead7afef39e9b71dc6ad8f610bebf196"
+          }
+        },
+        {
+          "client_id": "615353031079-vv3m31mofr4oosirstvfah2m5lf8lqb8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOk8Q2I7NsBQ7lz5E96r8gvuemT2KU5JI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "615353031079-vv3m31mofr4oosirstvfah2m5lf8lqb8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

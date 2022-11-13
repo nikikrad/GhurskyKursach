@@ -10,16 +10,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.ghurskykursach.R
-import com.example.ghurskykursach.databinding.FragmentMainBinding
 import com.example.ghurskykursach.databinding.FragmentMovieDescriptionBinding
-import com.example.ghurskykursach.presentation.main.MainAdapter
-import com.example.ghurskykursach.presentation.main.MainViewModel
+import com.example.ghurskykursach.presentation.movie.response.MoviesFirebase
 import org.koin.android.ext.android.inject
 
 class MovieDescriptionFragment : Fragment(){
@@ -92,6 +88,16 @@ class MovieDescriptionFragment : Fragment(){
                 bundle.putString("DESCRIPTION", movie.description)
                 Navigation.findNavController(binding.root).navigate(R.id.action_movieDescriptionFragment_to_sheetDialogFragment, bundle)
             }
+            binding.btnBack.setOnClickListener {
+                Navigation.findNavController(binding.root).popBackStack()
+            }
+
+            binding.btnMore.setOnClickListener {
+                val bundle = Bundle()
+                bundle.putSerializable("MOVIE", MoviesFirebase(movie.id.toString(), movie.name, movie.poster.url))
+                Navigation.findNavController(binding.root).navigate(R.id.action_movieDescriptionFragment_to_addingSheetDialogFragment, bundle)
+            }
+
         }
     }
 }

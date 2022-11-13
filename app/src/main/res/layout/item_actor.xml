@@ -25,8 +25,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/iv_Avatar"
         app:layout_constraintStart_toEndOf="@+id/iv_Avatar"
         android:layout_marginStart="20dp"
-        android:textSize="20sp"
-        android:hint="Nikita Shurinov"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/tv_Position"

@@ -24,9 +24,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/black"
-        app:itemIconTint="#C0BEBE"
-        app:itemTextColor="@color/white"
+        android:background="@color/white"
+        app:itemIconTint="@color/orange"
+        app:itemTextColor="@color/black"
         app:itemRippleColor="@null"
         app:menu="@menu/bottom_menu"/>
 

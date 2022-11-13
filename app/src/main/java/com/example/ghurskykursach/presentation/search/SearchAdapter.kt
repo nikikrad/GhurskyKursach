@@ -1,4 +1,4 @@
-package com.example.ghurskykursach.presentation.main
+package com.example.ghurskykursach.presentation.search
 
 import android.os.Bundle
 import android.util.Log
@@ -12,10 +12,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ghurskykursach.R
 import com.example.ghurskykursach.domain.response.Docs
+import com.example.ghurskykursach.presentation.main.MainAdapter
 
-class MainAdapter(
+class SearchAdapter(
     private val movieList: List<Docs>
-) : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+) : RecyclerView.Adapter<SearchAdapter.MainViewHolder>() {
 
     companion object {
         var megastatus = false
@@ -29,9 +30,13 @@ class MainAdapter(
         val view = layoutInflater.inflate(R.layout.item_films, parent, false)
         return MainViewHolder(view)
     }
-
+    //    var i = 0;
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-            holder.bind(movieList[position])
+//        if(movieList[i].name !== null ){
+        holder.bind(movieList[position])
+//        }
+//        i++
+
     }
 
     override fun getItemCount(): Int = movieList.size
@@ -42,6 +47,7 @@ class MainAdapter(
 
         private val name: TextView = itemView.findViewById(R.id.tv_Name)
         private val avatar: ImageView = itemView.findViewById((R.id.iv_Avatar))
+        //        private val price: TextView = itemView.findViewById(R.id.tv_Price)
         private val bundle = Bundle()
         fun bind(item: Docs) {
             megastatus = false
@@ -65,7 +71,7 @@ class MainAdapter(
                     megastatus = true
                     bundle.putInt("ID", item.id)
                     Navigation.findNavController(itemView)
-                        .navigate(R.id.action_mainFragment_to_movieDescriptionFragment, bundle)
+                        .navigate(R.id.action_searchFragment_to_movieDescriptionFragment, bundle)
                 }
             }
 

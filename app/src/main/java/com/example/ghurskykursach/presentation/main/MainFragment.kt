@@ -29,12 +29,17 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 
-        mainViewModel.getResponse("Книга Илая")
+        mainViewModel.getResponse()
 
-        responseBody.clear()
-        mainViewModel.liveData.observe(viewLifecycleOwner) {
-            Log.e("MovieTag", it.toString())
-            val adapter = MainAdapter(it.docs)
+        mainViewModel.liveData.observe(viewLifecycleOwner) { movies ->
+            responseBody.clear()
+            Log.e("MovieTag", movies.toString())
+            movies.docs.forEach {
+                if (it.name !== null && it.description !== null){
+                    responseBody.add(it)
+                }
+            }
+            val adapter = MainAdapter(responseBody)
             binding.rvMovies.layoutManager =
                 LinearLayoutManager(
                     activity?.applicationContext,

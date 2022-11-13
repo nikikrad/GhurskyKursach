@@ -19,9 +19,36 @@
         <action
             android:id="@+id/action_movieDescriptionFragment_to_sheetDialogFragment"
             app:destination="@id/sheetDialogFragment" />
+        <action
+            android:id="@+id/action_movieDescriptionFragment_to_addingSheetDialogFragment"
+            app:destination="@id/addingSheetDialogFragment" />
     </fragment>
     <dialog
         android:id="@+id/sheetDialogFragment"
         android:name="com.example.ghurskykursach.presentation.movie.dialog.SheetDialogFragment"
         android:label="SheetDialogFragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.ghurskykursach.presentation.search.SearchFragment"
+        android:label="SearchFragment" >
+        <action
+            android:id="@+id/action_searchFragment_to_movieDescriptionFragment"
+            app:destination="@id/movieDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.ghurskykursach.presentation.setting.SettingFragment"
+        android:label="SettingFragment" />
+    <dialog
+        android:id="@+id/addingSheetDialogFragment"
+        android:name="com.example.ghurskykursach.presentation.movie.dialog.AddingSheetDialogFragment"
+        android:label="AddingSheetDialogFragment" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.ghurskykursach.presentation.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_movieDescriptionFragment"
+            app:destination="@id/movieDescriptionFragment" />
+    </fragment>
 </navigation>
