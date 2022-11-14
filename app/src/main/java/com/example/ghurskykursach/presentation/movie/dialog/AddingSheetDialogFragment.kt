@@ -39,14 +39,24 @@ class AddingSheetDialogFragment : BottomSheetDialogFragment() {
         database = Firebase.database.reference
         val movie = arguments?.getSerializable("MOVIE") as MoviesFirebase
         CoroutineScope(Dispatchers.IO).launch {
-             var statusAnime by Delegates.notNull<Boolean>()
+//            var statusAnime by Delegates.notNull<Boolean>()
+//                statusAnime = getStatusMovie(movie.id)
+            var megaStatus = true
             runBlocking {
-                statusAnime = getStatusMovie(movie.id)
+                database.child(auth.currentUser?.email.toString().substringBefore("@")).get()
+                    .addOnSuccessListener {
+                        it.children.forEach { data ->
+                            if (data.key.toString() == movie.id) {
+                                megaStatus = false
+                            }
+                        }
+                    }
             }
+
             binding.btnYes.setOnClickListener {
                 if (auth.currentUser != null) {
-                    if (statusAnime) {
-                        if(movie.backdrop !== null){
+//                    if (megaStatus) {
+                        if (movie.backdrop !== null) {
                             database.child(
                                 auth.currentUser?.email.toString().substringBefore("@")
                             )
@@ -60,7 +70,7 @@ class AddingSheetDialogFragment : BottomSheetDialogFragment() {
                                 ).addOnSuccessListener {
                                     dialog?.dismiss()
                                 }
-                        }else{
+                        } else {
                             database.child(
                                 auth.currentUser?.email.toString().substringBefore("@")
                             )
@@ -75,14 +85,22 @@ class AddingSheetDialogFragment : BottomSheetDialogFragment() {
                                     dialog?.dismiss()
                                 }
                         }
-
-                    }
+//                    }
                 } else {
                     Toast.makeText(context, "Войдите в аккаунт!", Toast.LENGTH_SHORT).show()
                 }
-
             }
-            binding.btnNo.setOnClickListener{
+            binding.btnNo.setOnClickListener {
+                database.child(
+                    auth.currentUser?.email.toString().substringBefore("@")
+                ).get()
+                    .addOnSuccessListener {
+                        it.child(movie.id).ref.removeValue()
+                            .addOnSuccessListener {
+                                Toast.makeText(context, "${movie.name} удален", Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                    }
                 dialog?.dismiss()
             }
         }
