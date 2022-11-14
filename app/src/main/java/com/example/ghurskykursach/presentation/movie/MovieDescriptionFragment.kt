@@ -45,7 +45,7 @@ class MovieDescriptionFragment : Fragment(){
             Log.e("MovieTag", movie.toString())
             try{
                 Glide.with(binding.root)
-                    .load(movie.backdrop.url)
+                    .load(movie.backdrop?.url)
                     .placeholder(R.drawable.ic_search)
                     .into(binding.ivBackPoster)
             }catch (e: Exception){
@@ -54,7 +54,7 @@ class MovieDescriptionFragment : Fragment(){
 
             try{
                 Glide.with(binding.root)
-                    .load(movie.poster.url)
+                    .load(movie.poster?.url)
                     .placeholder(R.drawable.ic_search)
                     .into(binding.ivPoster)
             }catch (e: Exception){
@@ -62,14 +62,14 @@ class MovieDescriptionFragment : Fragment(){
             }
 
             binding.tvDescription.text = movie.description
-            binding.tvBudget.text = movie.budget.value.toString()
-            binding.tvBudgetWorld.text = movie.fees.value.toString()
-            binding.tvRating.text = movie.rating.kp.toString()
+            binding.tvBudget.text = movie.budget?.value.toString()
+            binding.tvBudgetWorld.text = movie.fees?.world?.value.toString()
+            binding.tvRating.text = movie.rating?.kp.toString()
 
             val resource: Resources = resources
             val green = resource.getColor(R.color.green, null)
             val red = resource.getColor(org.koin.android.R.color.error_color_material_dark, null)
-            if (movie.rating.kp >= 7.0){
+            if (movie.rating?.kp!! >= 7.0){
                 binding.tvRating.setTextColor(green)
             }
             if(movie.rating.kp < 7.0 && movie.rating.kp >= 5.0){
@@ -78,8 +78,8 @@ class MovieDescriptionFragment : Fragment(){
             if (movie.rating.kp < 5.0){
                 binding.tvRating.setTextColor(red)
             }
-            binding.tvVotes.text = movie.votes.kp.toString() + " оценок"
-            val adapter = MovieDescriptionAdapter(movie.persons)
+            binding.tvVotes.text = movie.votes?.kp.toString() + " оценок"
+            val adapter = MovieDescriptionAdapter(movie?.persons!!)
             binding.rvActors.layoutManager = GridLayoutManager(context, 5, GridLayoutManager.HORIZONTAL, false)
             binding.rvActors.adapter = adapter
 
@@ -94,7 +94,11 @@ class MovieDescriptionFragment : Fragment(){
 
             binding.btnMore.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putSerializable("MOVIE", MoviesFirebase(movie.id.toString(), movie.name, movie.poster.url))
+                if (movie.backdrop?.url == null){
+                    bundle.putSerializable("MOVIE", MoviesFirebase(movie.id.toString(), movie.name!!, movie.poster?.url!!, ""))
+                }else
+                    bundle.putSerializable("MOVIE", MoviesFirebase(movie.id.toString(), movie.name!!, movie.poster?.url!!, movie.backdrop.url))
+
                 Navigation.findNavController(binding.root).navigate(R.id.action_movieDescriptionFragment_to_addingSheetDialogFragment, bundle)
             }
 

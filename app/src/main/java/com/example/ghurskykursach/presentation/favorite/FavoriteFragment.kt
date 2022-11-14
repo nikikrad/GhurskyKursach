@@ -55,7 +55,8 @@ class FavoriteFragment : Fragment() {
                         MoviesFirebase(
                             aboutAnime.child("id").value.toString(),
                             aboutAnime.child("name").value.toString(),
-                            aboutAnime.child("poster").value.toString()
+                            aboutAnime.child("poster").value.toString(),
+                            aboutAnime.child("backdrop").value.toString()
                         )
                     )
                 }

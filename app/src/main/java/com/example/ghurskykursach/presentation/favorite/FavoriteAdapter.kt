@@ -42,6 +42,7 @@ class FavoriteAdapter(
 
         private val name: TextView = itemView.findViewById(R.id.tv_Name)
         private val avatar: ImageView = itemView.findViewById((R.id.iv_Avatar))
+        private val backPoster: ImageView = itemView.findViewById(R.id.iv_BackPoster)
         private val bundle = Bundle()
         fun bind(item: MoviesFirebase) {
             megastatus = false
@@ -54,6 +55,14 @@ class FavoriteAdapter(
                     .into(avatar)
 
                 name.text = item.name
+
+                if(item.backdrop != ""){
+                    Glide.with(itemView)
+                        .load(item.backdrop)
+                        .placeholder(R.drawable.ic_search)
+                        .into(backPoster)
+                }
+
 
             }catch (e:Exception){
                 Log.e("TAG", e.localizedMessage.toString() )

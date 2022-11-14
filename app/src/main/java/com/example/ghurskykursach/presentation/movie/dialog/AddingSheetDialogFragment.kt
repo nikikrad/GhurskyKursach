@@ -46,18 +46,36 @@ class AddingSheetDialogFragment : BottomSheetDialogFragment() {
             binding.btnYes.setOnClickListener {
                 if (auth.currentUser != null) {
                     if (statusAnime) {
-                        database.child(
-                            auth.currentUser?.email.toString().substringBefore("@")
-                        )
-                            .child(movie.id).setValue(
-                                MoviesFirebase(
-                                    movie.id,
-                                    movie.name,
-                                    movie.poster
-                                )
-                            ).addOnSuccessListener {
-                                dialog?.dismiss()
-                            }
+                        if(movie.backdrop !== null){
+                            database.child(
+                                auth.currentUser?.email.toString().substringBefore("@")
+                            )
+                                .child(movie.id).setValue(
+                                    MoviesFirebase(
+                                        movie.id,
+                                        movie.name,
+                                        movie.poster,
+                                        movie.backdrop
+                                    )
+                                ).addOnSuccessListener {
+                                    dialog?.dismiss()
+                                }
+                        }else{
+                            database.child(
+                                auth.currentUser?.email.toString().substringBefore("@")
+                            )
+                                .child(movie.id).setValue(
+                                    MoviesFirebase(
+                                        movie.id,
+                                        movie.name,
+                                        movie.poster,
+                                        ""
+                                    )
+                                ).addOnSuccessListener {
+                                    dialog?.dismiss()
+                                }
+                        }
+
                     }
                 } else {
                     Toast.makeText(context, "Войдите в аккаунт!", Toast.LENGTH_SHORT).show()

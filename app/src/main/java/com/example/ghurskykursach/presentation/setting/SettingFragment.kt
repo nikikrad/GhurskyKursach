@@ -29,20 +29,9 @@ class SettingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
-        if (auth.currentUser == null) {
-            status = false
-            binding.btnLogOut.isVisible = false
-            binding.btnLogIn.isVisible = true
-        } else {
-            status = true
-            binding.btnLogOut.isVisible = true
-            binding.btnLogIn.isVisible = false
-        }
 
         binding.btnLogOut.setOnClickListener {
             auth.signOut()
-        }
-        binding.btnLogIn.setOnClickListener {
             var intent = Intent(context, AuthActivity::class.java)
             startActivity(intent)
         }

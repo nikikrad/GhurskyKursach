@@ -33,4 +33,14 @@ class MainActivity : AppCompatActivity() {
             }
         bottomNavigationView.setupWithNavController(navController)
     }
+
+    override fun onPause() {
+        super.onPause()
+        finish()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        finish()
+    }
 }

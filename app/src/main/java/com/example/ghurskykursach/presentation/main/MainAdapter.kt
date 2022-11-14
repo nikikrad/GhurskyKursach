@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -26,7 +28,7 @@ class MainAdapter(
         viewType: Int
     ): MainViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.item_films, parent, false)
+        val view = layoutInflater.inflate(R.layout.item_movie_main, parent, false)
         return MainViewHolder(view)
     }
 
@@ -42,6 +44,8 @@ class MainAdapter(
 
         private val name: TextView = itemView.findViewById(R.id.tv_Name)
         private val avatar: ImageView = itemView.findViewById((R.id.iv_Avatar))
+        private val rating: TextView = itemView.findViewById(R.id.tv_Rating)
+        private val linearLayout: LinearLayout = itemView.findViewById(R.id.ll_Second)
         private val bundle = Bundle()
         fun bind(item: Docs) {
             megastatus = false
@@ -53,6 +57,9 @@ class MainAdapter(
                     .placeholder(R.drawable.ic_search)
                     .into(avatar)
 
+                rating.isVisible = item.rating.kp != 0.0
+
+                rating.text = item.rating.kp.toString()
                 name.text = item.name
 
             }catch (e:Exception){

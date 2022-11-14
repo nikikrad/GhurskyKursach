@@ -15,16 +15,4 @@
         android:textSize="20sp"
         />
 
-    <Button
-        android:id="@+id/btn_LogIn"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:textColor="@color/white"
-        android:background="@color/orange"
-        android:visibility="invisible"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Войти в акканут"
-        android:textSize="20sp"
-        />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
