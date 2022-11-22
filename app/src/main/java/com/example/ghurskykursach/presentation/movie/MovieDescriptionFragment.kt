@@ -3,6 +3,7 @@ package com.example.ghurskykursach.presentation.movie
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Resources
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Editable
@@ -76,6 +77,9 @@ class MovieDescriptionFragment : Fragment(){
                 Log.e("Error", e.message.toString() )
             }
 
+            binding.tvMovieName.text = movie.name
+            binding.tvMovieLength.text = "Длина фильма: ${movie.movieLength} мин"
+
             binding.tvDescription.text = movie.description
             binding.tvBudget.text = movie.budget?.value.toString()
             binding.tvBudgetWorld.text = movie.fees?.world?.value.toString()
@@ -132,9 +136,9 @@ class MovieDescriptionFragment : Fragment(){
             }
 
             binding.btnYouTube.setOnClickListener {
-//                val intent = Intent(context, YoutubeActivity::class.java)
-//                intent.putExtra("YTVideo", movie.videos?.trailers?.get(0)?.url)
-//                startActivity(intent)
+                val openUrl = Intent(android.content.Intent.ACTION_VIEW)
+                openUrl.data = Uri.parse(movie.videos!!.trailers?.get(0)!!.url)
+                startActivity(openUrl)
             }
 
         }
