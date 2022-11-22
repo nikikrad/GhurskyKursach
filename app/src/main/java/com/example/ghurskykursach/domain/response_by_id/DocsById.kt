@@ -6,6 +6,7 @@ data class DocsById(
     val backdrop: BackdropById?,
     val rating: RatingById?,
     val votes: VotesById?,
+    val videos: VideosById?,
     val budget: BudgetById?,
     val fees: FeesById?,
     val premiere: PremiereById?,

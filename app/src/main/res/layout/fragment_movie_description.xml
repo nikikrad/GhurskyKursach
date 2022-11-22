@@ -262,6 +262,82 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/btn_YouTube"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Смотреть трейлер!"
+                        android:background="@drawable/back_watch_trailer"
+                        android:textColor="@color/black"
+                        android:padding="10dp"
+                        android:textSize="20sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Комментарии"
+                        android:textSize="25sp"
+                        android:layout_marginStart="20dp"
+                        android:gravity="bottom"
+                        android:textColor="@color/black"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="300dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_Comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_Comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:inputType="textCapSentences"
+                        android:maxLength="100"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/btn_SendComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Отправить комментарий!"
+                        android:padding="10dp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:background="@drawable/back_watch_trailer"/>
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
 

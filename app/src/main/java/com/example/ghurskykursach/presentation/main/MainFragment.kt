@@ -34,7 +34,10 @@ class MainFragment : Fragment() {
 
         mainViewModel.liveData.observe(viewLifecycleOwner) { movies ->
             responseBody.clear()
-            Log.e("MovieTag", movies.toString())
+            movies.docs.forEach {
+//                Log.e("MovieTag",it.video!!.trailers[0]!!.url!!)
+            }
+//            Log.e("MovieTag", movies.docs)
             movies.docs.forEach {
                 if (it.name !== null && it.description !== null){
                     responseBody.add(it)

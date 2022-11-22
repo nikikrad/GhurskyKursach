@@ -97,8 +97,8 @@ class AddingSheetDialogFragment : BottomSheetDialogFragment() {
                     .addOnSuccessListener {
                         it.child(movie.id).ref.removeValue()
                             .addOnSuccessListener {
-                                Toast.makeText(context, "${movie.name} удален", Toast.LENGTH_SHORT)
-                                    .show()
+//                                Toast.makeText(context, "${movie.name} удален", Toast.LENGTH_SHORT)
+//                                    .show()
                             }
                     }
                 dialog?.dismiss()

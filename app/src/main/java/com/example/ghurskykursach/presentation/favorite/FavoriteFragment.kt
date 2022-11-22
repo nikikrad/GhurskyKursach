@@ -62,7 +62,6 @@ class FavoriteFragment : Fragment() {
                 }
 
                 adapter = FavoriteAdapter(movieList)
-                adapter.notifyDataSetChanged()
                 val unWatchedLinearLayoutManager =
                     LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
                 unWatchedLinearLayoutManager.reverseLayout = true
