@@ -22,8 +22,8 @@
         android:padding="10dp"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textOff="Регистрация"
-        android:textOn="Авторизация"
+        android:textOff="Авторизация"
+        android:textOn="Регистрация"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
