@@ -34,10 +34,7 @@ class MainFragment : Fragment() {
 
         mainViewModel.liveData.observe(viewLifecycleOwner) { movies ->
             responseBody.clear()
-            movies.docs.forEach {
-//                Log.e("MovieTag",it.video!!.trailers[0]!!.url!!)
-            }
-//            Log.e("MovieTag", movies.docs)
+
             movies.docs.forEach {
                 if (it.name !== null && it.description !== null){
                     responseBody.add(it)
@@ -45,8 +42,8 @@ class MainFragment : Fragment() {
             }
             val adapter = MainAdapter(responseBody)
             binding.rvMovies.layoutManager =
-                GridLayoutManager(
-                    activity?.applicationContext,2)
+                LinearLayoutManager(
+                    activity?.applicationContext, LinearLayoutManager.VERTICAL, false)
             binding.rvMovies.adapter = adapter
         }
 
