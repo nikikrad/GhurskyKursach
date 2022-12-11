@@ -176,6 +176,7 @@
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
+                        android:text="10000000"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_BudgetLabel"
                         app:layout_constraintStart_toEndOf="@+id/tv_BudgetLabel"
                         app:layout_constraintTop_toTopOf="@+id/tv_BudgetLabel" />
@@ -209,6 +210,7 @@
                         android:textColor="@color/black"
                         android:textColorHint="@color/black"
                         android:textSize="20sp"
+                        android:text="200000000"
                         app:layout_constraintBottom_toBottomOf="@+id/tv_BudgetWorldLabel"
                         app:layout_constraintStart_toEndOf="@+id/tv_BudgetWorldLabel"
                         app:layout_constraintTop_toTopOf="@+id/tv_BudgetWorldLabel" />
